@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Palindrome {
+
+    public static void main(String[] args) {
+        //Start time
+	long  startTime = System.currentTimeMillis();
+        long st=System.nanoTime();
+        //scanner class 
+        Scanner kb =new Scanner (System.in);
+        
+        String string1; // string user enters 
+        String string2=""; // reversed string 
+        
+        //input from user 
+        System.out.print("Please enter a string: ");
+        string1=kb.nextLine();
+        isPalindrome(string1, string2);
+        
+        //call isPalindrome method and prints true or false 
+        System.out.println(isPalindrome(string1, string2));
+        long endTime   = System.currentTimeMillis();
+        long et= System.nanoTime();
+        long totalTime = endTime - startTime;
+        long tt=et-st;
+        System.out.println(totalTime +" milliseconds");
+        System.out.println(tt+ " nano");
+        
+    }
+        
+    
+    public static boolean isPalindrome(String string1, String string2)
+    {
+    
+        //all characteres to lowercase 
+        string1=string1.toLowerCase(); 
+        
+        //for loop to reverse string 
+        for (int i = string1.length() - 1; i >= 0; i--) 
+        {  // last index to first 
+            string2 += string1.charAt(i);  
+        }   
+        
+        //for loop to go through each character of string
+        for(int i=0;i<string1.length();i++)
+        {   //checks each character
+            if(string1.charAt(i)!=string2.charAt(i))
+            {
+               return false; // if not the same return false 
+            }
+            
+        }
+       
+       return true;// if they are the same return true 
+       
+     }
+        
+ }
